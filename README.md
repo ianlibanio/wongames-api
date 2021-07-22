@@ -1,3 +1,3 @@
-# Strapi application
+# Won Games API
 
-A quick description of your strapi application
+This is the repository of the Won Games API, created using Strapi and PostgreSQL.
