@@ -29,7 +29,6 @@ const headers = [
   },
 ];
 
-// https://api.github.com/users/react-avancado/repos
 const HomePage = () => {
   const [rows, setRows] = useState([]);
 
