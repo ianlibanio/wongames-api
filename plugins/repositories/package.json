@@ -1,0 +1,29 @@
+{
+  "name": "strapi-plugin-repositories",
+  "private": true,
+  "version": "1.0.0",
+  "description": "A list of Won Games repositories.",
+  "strapi": {
+    "name": "Repositories",
+    "icon": "code",
+    "description": "A list of Won Games repositories."
+  },
+  "dependencies": {},
+  "author": {
+    "name": "Ian Libânio",
+    "email": "",
+    "url": ""
+  },
+  "maintainers": [
+    {
+      "name": "Ian Libânio",
+      "email": "",
+      "url": ""
+    }
+  ],
+  "engines": {
+    "node": ">=10.16.0 <=14.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT"
+}
