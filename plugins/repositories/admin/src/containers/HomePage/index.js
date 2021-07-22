@@ -31,7 +31,10 @@ const HomePage = () => {
     axios
       .get("https://api.github.com/users/ianlibanio/repos")
       .then((res) => {
-        setData(res.data);
+        res.data.map((d) => {
+          if (d.description === null) d.description = 'No description provided.'
+          setData(oldData => [...oldData, d]);
+        })
       })
       .catch((e) => strapi.notification.error(`${e}`));
   }, []);
