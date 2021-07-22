@@ -118,7 +118,7 @@ const HomePage = ({ history: { push } }) => {
                 {(msg) => <h2 id="mainHeader">{msg}</h2>}
               </FormattedMessage>
               <P>
-                Welcome to Won Games, a games ecommerce! Here you can configure
+                Welcome to Won Games, a game store! Here you can configure
                 all the content that will be displayed on the application.
               </P>
               <Separator style={{ marginTop: 37, marginBottom: 36 }} />
