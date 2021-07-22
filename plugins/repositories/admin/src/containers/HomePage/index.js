@@ -37,7 +37,7 @@ const HomePage = () => {
       .get("https://api.github.com/users/ianlibanio/repos")
       .then((res) => {
         res.data.map((data) => {
-          if (data.name.startsWith('wongames')) setRows(oldRows => [oldRows, data])
+          if (data.name.startsWith('wongames')) setRows(oldRows => [...oldRows, data])
         })
       })
       .catch(e => strapi.notification.error(`${e}`));
