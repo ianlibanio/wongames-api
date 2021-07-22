@@ -1,18 +1,11 @@
 import React, { useState, useEffect, memo } from "react";
 
 import axios from "axios";
-import styled from "styled-components";
 
-import { Table } from "@buffetjs/core";
+import { Table, Label } from "@buffetjs/core";
 import { Header } from "@buffetjs/custom";
 
-const Wrapper = styled.div`
-  padding: 18px 30px;
-
-  p {
-    margin-top: 1.5rem;
-  }
-`;
+import * as S from "./styles";
 
 const headers = [
   {
@@ -30,24 +23,43 @@ const headers = [
 ];
 
 const HomePage = () => {
+  const [data, setData] = useState([]);
   const [rows, setRows] = useState([]);
+  const [val, setValue] = useState(true);
 
   useEffect(() => {
     axios
       .get("https://api.github.com/users/ianlibanio/repos")
       .then((res) => {
-        res.data.map((data) => {
-          if (data.name.startsWith('wongames')) setRows(oldRows => [...oldRows, data])
-        })
+        setData(res.data);
       })
-      .catch(e => strapi.notification.error(`${e}`));
+      .catch((e) => strapi.notification.error(`${e}`));
   }, []);
 
+  useEffect(() => {
+    if (val) {
+      setRows([])
+      data.map((row) => {
+        if (row.name.startsWith('wongames')) setRows(oldRows => [...oldRows, row])
+      })
+    } else {
+      setRows(data)
+    }
+  }, [data, val])
+
   return (
-    <Wrapper>
+    <S.Wrapper>
       <Header
         title={{ label: "Repositories" }}
         content="A list of Won Games repositories."
+      />
+      <Label>See only Won Games repositories?</Label>
+      <S.Toggle
+        name="toggle"
+        onChange={({ target: { value } }) => setValue(value)}
+        value={val}
+        leftLabel="NO"
+        rightLabel="YES"
       />
       <Table
         headers={headers}
@@ -56,7 +68,7 @@ const HomePage = () => {
           window.open(data.html_url);
         }}
       />
-    </Wrapper>
+    </S.Wrapper>
   );
 };
 
