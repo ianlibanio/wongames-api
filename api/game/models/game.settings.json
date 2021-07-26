@@ -44,14 +44,14 @@
     "rating": {
       "type": "enumeration",
       "enum": [
-        "FREE",
-        "pegi3",
-        "pegi7",
-        "pegi12",
-        "pegi16",
-        "pegi18"
+        "BR0",
+        "BR10",
+        "BR12",
+        "BR14",
+        "BR16",
+        "BR18"
       ],
-      "default": "FREE",
+      "default": "BR0",
       "required": true
     },
     "cover": {
@@ -64,7 +64,7 @@
       "required": false,
       "pluginOptions": {}
     },
-    "galery": {
+    "gallery": {
       "collection": "file",
       "via": "related",
       "allowedTypes": [
@@ -80,8 +80,8 @@
       "dominant": true
     },
     "developers": {
-      "collection": "developer",
       "via": "games",
+      "collection": "developer",
       "dominant": true
     },
     "platforms": {
